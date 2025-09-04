@@ -1,0 +1,5 @@
+node_modules
+curl.txt
+.env
+data.json
+api.json

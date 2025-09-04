@@ -1,0 +1,70 @@
+import fetch from "node-fetch";
+let url =
+  "https://sapi.dramaboxdb.com/drama-box/chapterv2/batch/load?timestamp=1756990930384";
+
+let options = {
+  method: "POST",
+  headers: {
+    tn: "Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKVVJVMVFJaXdpZFhObGNrbGtJam95TnpnNU5UUTVNek45LnRNNXRISFlUN01BYlZ0WkNCb01HM2JzaFhWdERkZnZieE9LWHR0RTRteHc=",
+    pline: "ANDROID",
+    version: "430",
+    vn: "4.3.0",
+    userid: "278954933",
+    cid: "DAUAG1050187",
+    "package-name": "com.storymatrix.drama",
+    apn: "2",
+    "device-id": "560bb4a3-8cd9-412c-a536-8290f5ae689e",
+    "android-id": "ffffffffe45f97b9e45f97b900000000",
+    language: "in",
+    "current-language": "in",
+    p: "43",
+    "local-time": "2025-09-04 12:11:31.508 +0000",
+    "time-zone": "+0000",
+    md: "Redmi Note 7",
+    ov: "9",
+    mf: "XIAOMI",
+    tz: "0",
+    brand: "Xiaomi",
+    srn: "1080x2340",
+    ins: "1756924755395",
+    mbid: "10000000000",
+    mchid: "DAUAG1050187",
+    nchid: "DRA1000042",
+    lat: "0",
+    build: "Build/PQ3A.190801.002",
+    locale: "in_ID",
+    "over-flow": "new-fly",
+    instanceid: "98c95026f47905f59c13741e6012479b",
+    "country-code": "ID",
+    "store-source": "store_google",
+    afid: "1756924755382-2983782470165908165",
+    is_vpn: "0",
+    is_root: "1",
+    is_emulator: "0",
+    "active-time": "34764",
+    "content-type": "application/json; charset=UTF-8",
+    host: "sapi.dramaboxdb.com",
+    connection: "Keep-Alive",
+    "accept-encoding": "gzip",
+    "user-agent": "okhttp/4.10.0",
+  },
+  body: JSON.stringify({
+    boundaryIndex: 0,
+    comingPlaySectionId: -1,
+    index: -1,
+    currencyPlaySource: "discover_175_rec",
+    needEndRecommend: 0,
+    currencyPlaySourceName: "首页发现_Untukmu_推荐列表",
+    preLoad: false,
+    rid: "",
+    pullCid: "",
+    loadDirection: 0,
+    startUpKey: "72db0b8c-92c6-48d8-bd44-404a678d4d3e",
+    bookId: "41000120502",
+  }),
+};
+
+fetch(url, options)
+  .then((res) => res.json())
+  .then((json) => console.log(JSON.stringify(json)))
+  .catch((err) => console.error("error:" + err));
