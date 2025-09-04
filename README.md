@@ -16,57 +16,144 @@ Sebuah API sederhana menggunakan **Express.js** dengan **JWT Authentication** un
 ## ⚙️ Instalasi
 
 1. Clone repository ini:
+
    ```bash
    git clone https://github.com/ehroy/books-video-api.git
    cd books-video-api
    ```
-   POST /login
-   {
-   "username": "admin",
-   "password": "12345"
-   }
-   Response (200)
-   {
-   "success": true,
-   "token": "your_jwt_token_here"
-   }
-   Response (401)
-   {
-   "success": false,
-   "message": "Invalid credentials"
-   }
 
-GET /api/books
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Jalankan server:
+   ```bash
+   npm start
+   ```
+
+---
+
+## 🔐 Autentikasi
+
+### Login
+
+**Endpoint:** `POST /login`
+
+**Request Body:**
+
+```json
+{
+  "username": "admin",
+  "password": "12345"
+}
+```
+
+**Response (200):**
+
+```json
+{
+  "success": true,
+  "token": "your_jwt_token_here"
+}
+```
+
+**Response (401):**
+
+```json
+{
+  "success": false,
+  "message": "Invalid credentials"
+}
+```
+
+---
+
+## 📖 Books API
+
+### Ambil Daftar Buku
+
+**Endpoint:** `GET /api/books`
+
+**Headers:**
+
+```
 Authorization: Bearer <your_token>
-Response (200)
-{
-"success": true,
-"data": [
-{ "id": 1, "title": "Book 1", "author": "Author 1" },
-{ "id": 2, "title": "Book 2", "author": "Author 2" }
-]
-}
+```
 
-Response (401)
-{
-"success": false,
-"message": "No token provided"
-}
+**Response (200):**
 
-POST /api/video/play
+```json
+{
+  "success": true,
+  "data": [
+    { "id": 1, "title": "Book 1", "author": "Author 1" },
+    { "id": 2, "title": "Book 2", "author": "Author 2" }
+  ]
+}
+```
+
+**Response (401):**
+
+```json
+{
+  "success": false,
+  "message": "No token provided"
+}
+```
+
+---
+
+## 🎥 Video API
+
+### Putar Video
+
+**Endpoint:** `POST /api/video/play`
+
+**Headers:**
+
+```
 Authorization: Bearer <your_token>
-request body
-{
-"id": "abc123"
-}
-Response (200)
-{
-"success": true,
-"response": "https://example.com/videos/abc123.mp4"
-}
+```
 
-Response (401)
+**Request Body:**
+
+```json
 {
-"success": false,
-"message": "Video not found"
+  "id": "abc123"
 }
+```
+
+**Response (200):**
+
+```json
+{
+  "success": true,
+  "response": "https://example.com/videos/abc123.mp4"
+}
+```
+
+**Response (404):**
+
+```json
+{
+  "success": false,
+  "message": "Video not found"
+}
+```
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+- **Node.js**
+- **Express.js**
+- **JWT (JSON Web Token)**
+- **Middleware untuk logging**
+
+---
+
+## 📝 Lisensi
+
+MIT License
